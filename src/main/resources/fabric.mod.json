@@ -7,7 +7,9 @@
   "authors": ["Clovix"],
   "license": "All Rights Reserved",
   "environment": "client",
-  "entrypoints": { "client": ["com.clovix.Clovix"] },
+  "entrypoints": {
+    "client": ["com.clovix.Clovix"]
+  },
   "depends": {
     "fabricloader": ">=0.20.1",
     "minecraft": "26.3",
