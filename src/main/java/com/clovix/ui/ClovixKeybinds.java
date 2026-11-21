@@ -1,5 +1,5 @@
 package com.clovix.ui;
-import com.clovix.Clovix;import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;import net.minecraft.client.KeyMapping;import net.minecraft.resources.Identifier;import net.minecraft.client.input.InputConstants;import java.util.concurrent.atomic.AtomicBoolean;
+import com.clovix.Clovix;import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;import net.minecraft.client.KeyMapping;import net.minecraft.resources.Identifier;import net.minecraft.client.InputConstants;import java.util.concurrent.atomic.AtomicBoolean;
 /** Open Clovix from a remappable keybind; registration is idempotent. */
 public final class ClovixKeybinds {
  private static final AtomicBoolean REGISTERED=new AtomicBoolean(false);private ClovixKeybinds(){}
