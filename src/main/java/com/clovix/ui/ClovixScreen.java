@@ -11,7 +11,7 @@ public final class ClovixScreen extends Screen {
  private int panelW(){return Math.max(140,width-panelX()-18);}
  private void nav(String target){section=target;init();}
  @Override protected void init(){
-  int x=18,y=44;int navW=wide()?132:Math.max(72,(width-42)/4);int h=wide()?26:24;
+  boolean wide=wide();int x=18,y=44;int navW=wide()?132:Math.max(72,(width-42)/4);int h=wide()?26:24;
   String[] items={"Overview","Modules","Settings","Theme"};
   for(int i=0;i<items.length;i++){final String item=items[i];int bx=wide?x:x+i*(navW+6);int by=wide?y+i*(h+6):y;addRenderableWidget(Button.builder(Component.literal(item),b->nav(item)).bounds(bx,by,navW,h).build());}
   if(wide)addRenderableWidget(Button.builder(Component.literal("Close"),b->onClose()).bounds(x,y+4*(h+6),navW,h).build());
