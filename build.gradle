@@ -1,4 +1,5 @@
-plugins {    id 'fabric-loom' version '1.17'
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17'
     id 'maven-publish'
 }
 
@@ -11,12 +12,13 @@ repositories { mavenCentral() }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
-loom { splitEnvironmentSourceSets() }
+loom {
+    splitEnvironmentSourceSets()
+}
 
 processResources {
     inputs.property 'version', project.version
@@ -32,4 +34,3 @@ tasks.withType(JavaCompile).configureEach {
     options.release = 25
     options.encoding = 'UTF-8'
 }
-
