@@ -1,23 +1,26 @@
-<div align="center">  <h1>Clovix</h1>
-  <p>A modular Minecraft Java Edition client customization mod.</p>
-</div>
+# Clovix
 
-> Work in progress. Clovix is designed as a local-first client-side mod with one shared Core and edition-based feature access.
+A modular Minecraft Java Edition client customization mod.
 
-## Current target
-- Minecraft Java Edition 26.3
-- Fabric Loader / Fabric API
-- Java 25
-- Gradle + Fabric Loom
+> Work in progress. Clovix is local-first, client-side, and uses a shared Core with edition-based feature access.
 
-## Core principles
-- Modular services and lifecycle management
+## Target toolchain
+- Minecraft Java Edition **26.3**
+- Fabric Loader **0.20.1**
+- Fabric API **0.166.2+26.3**
+- Java **25**
+- Gradle **9.6.0**
+- Fabric Loom **1.17**, non-remapping plugin
+
+Minecraft 26.1+ is unobfuscated; Yarn mappings are no longer used. Clovix uses the non-remapping Loom plugin and Mojang's native class names.
+
+## Principles
+- Modular lifecycle-managed services
+- Central edition permission checks
 - Local configuration, validation and backups
-- Edition permissions centralized in Core
-- Responsive native in-game UI (planned)
-- Compatibility and diagnostics as first-class systems
+- Compatibility and diagnostics as core systems
 - No Fly module in any edition
-- Cheat-only modules are isolated and unavailable to ordinary-tier macro/extensions
+- Cheat modules isolated from regular-tier macros and extensions
 
 ## Build
-CI uses Java 25 and Gradle 9.6.0. The Gradle wrapper is generated in CI at this bootstrap stage. A reproducible wrapper binary will be committed once a binary source is available.
+GitHub Actions builds using Java 25 and Gradle 9.6. The wrapper is generated in CI during bootstrap; a wrapper binary will be committed when a binary can be safely sourced.
