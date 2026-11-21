@@ -26,8 +26,16 @@ jobs:
       - name: Generate Gradle wrapper
         run: gradle wrapper --gradle-version 9.8.0
       - name: Build mod
-        run: gradle build
+        run: gradle build --stacktrace 2>&1 | tee clovix-build.log
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clovix-build-failure-log
+          path: clovix-build.log
+          if-no-files-found: warn
       - name: Upload JARs
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: clovix-build
