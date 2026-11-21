@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "clovix",
+  "version": "${version}",
+  "name": "Clovix",
+  "description": "A modular client-side Minecraft customization suite.",
+  "authors": ["Clovix"],
+  "license": "All Rights Reserved",
+  "environment": "client",
+  "entrypoints": { "client": ["com.clovix.Clovix"] },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
