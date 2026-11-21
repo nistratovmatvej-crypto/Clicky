@@ -13,7 +13,7 @@ public final class ClovixScreen extends Screen {
  @Override protected void init(){
   int x=18,y=44;int navW=wide()?132:Math.max(72,(width-42)/4);int h=wide()?26:24;
   String[] items={"Overview","Modules","Settings","Theme"};
-  for(int i=0;i<items.length;i++){final String item=items[i];int bx=wide?x:x+i*(navW+6);int by=wide?y+i*(h+6):y;addRenderableWidget(Button.builder(Component.literal(item),b->{if(item.equals("Theme")){ThemeManager.cycle(Clovix.core());init();}else nav(item);}).bounds(bx,by,navW,h).build());}
+  for(int i=0;i<items.length;i++){final String item=items[i];int bx=wide?x:x+i*(navW+6);int by=wide?y+i*(h+6):y;addRenderableWidget(Button.builder(Component.literal(item),b->nav(item)).bounds(bx,by,navW,h).build());}
   if(wide)addRenderableWidget(Button.builder(Component.literal("Close"),b->onClose()).bounds(x,y+4*(h+6),navW,h).build());
   if(section.equals("Modules")){int py=panelY()+30;for(ClovixModule m:Clovix.core().modules().all()){int bx=panelX(),bw=Math.min(panelW(),300);boolean active=m.lifecycle()==Lifecycle.ACTIVE;addRenderableWidget(Button.builder(Component.literal((active?"[ON]  ":"[OFF]  ")+m.displayName()),b->{if(active)Clovix.core().moduleManager().disable(m.id());else Clovix.core().moduleManager().enable(m.id());init();}).bounds(bx,py,bw,26).build());py+=32;}}
   if(section.equals("Settings")){var settings=Clovix.core().config().snapshot();boolean show=!settings.has("showHud")||settings.get("showHud").getAsBoolean();addRenderableWidget(Button.builder(Component.literal("Custom HUD: "+(show?"ON":"OFF")),b->{Clovix.core().config().put("showHud",new JsonPrimitive(!show));init();}).bounds(panelX(),panelY()+28,Math.min(panelW(),300),28).build());}
